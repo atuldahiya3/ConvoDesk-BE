@@ -1,5 +1,6 @@
 package com.convodesk.backend.Security;
 
+import io.jsonwebtoken.Claims;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,8 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private  JwtProvider jwtProvider;
-    private CustomUserDetailService userDetailsService;
+    private final JwtProvider jwtProvider;
+    private final CustomUserDetailService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -32,7 +33,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             if (jwtProvider.isTokenValid(token)) {
                 String email = jwtProvider.extractUsername(token);
+                Claims claims = jwtProvider.extractAllClaims(token);
+                Long businessId = claims.get("businessId", Long.class);
 
+                TenantContext.setTenantId(businessId);
                 var userDetails = userDetailsService.loadUserByUsername(email);
 
                 UsernamePasswordAuthenticationToken authToken =
@@ -47,5 +51,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(request, response);
+        TenantContext.clear();
     }
 }
