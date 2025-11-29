@@ -44,7 +44,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name="business_id")
     private Business business;
-    private Boolean active=true;
+    private boolean active = true;
     private Boolean emailVerified = false;
     private LocalDateTime createdAt = LocalDateTime.now();
 
