@@ -1,8 +1,8 @@
 package com.convodesk.backend.Controller;
 
-import Dto.AuthResponse;
-import Dto.LoginRequest;
-import Dto.RegisterBusinessRequest;
+import com.convodesk.backend.Dto.AuthResponse;
+import com.convodesk.backend.Dto.LoginRequest;
+import com.convodesk.backend.Dto.RegisterBusinessRequest;
 import com.convodesk.backend.Service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

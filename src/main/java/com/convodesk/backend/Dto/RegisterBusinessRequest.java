@@ -1,4 +1,4 @@
-package Dto;
+package com.convodesk.backend.Dto;
 
 import lombok.Data;
 

@@ -1,8 +1,8 @@
 package com.convodesk.backend.Service;
 
-import Dto.AuthResponse;
-import Dto.LoginRequest;
-import Dto.RegisterBusinessRequest;
+import com.convodesk.backend.Dto.AuthResponse;
+import com.convodesk.backend.Dto.LoginRequest;
+import com.convodesk.backend.Dto.RegisterBusinessRequest;
 import com.convodesk.backend.Entity.Business;
 import com.convodesk.backend.Entity.Role;
 import com.convodesk.backend.Entity.User;
