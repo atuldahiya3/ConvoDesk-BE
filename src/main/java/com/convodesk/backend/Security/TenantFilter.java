@@ -13,7 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 @Component
-public class TenantFilter extends OncePerRequestFilter {   // ← changed to OncePerRequestFilter
+public class TenantFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -38,8 +38,7 @@ public class TenantFilter extends OncePerRequestFilter {   // ← changed to Onc
             return;
         }
 
-        // 3. For protected endpoints (you already check /business, keep it or broaden)
-        if (path.startsWith("/business") || path.startsWith("/api")) {  // add any other protected path
+        if (path.startsWith("/business") || path.startsWith("/api")) {
 
             Long tenantId = TenantContext.getTenantId();
             if (tenantId == null) {
