@@ -87,6 +87,13 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.livekit</groupId>
+            <artifactId>livekit-server</artifactId>
+            <version>0.10.1</version>  <!-- Or 0.8.1 if you need to stay close to 0.8.x -->
+        </dependency>
+
+
         <!-- Devtools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
