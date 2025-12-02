@@ -47,6 +47,7 @@ public class AuthService {
                 .hashedPassword(passwordEncoder.encode(req.getPassword()))
                 .role(Role.BUSINESS_ADMIN)
                 .business(business)
+                .active(true)
                 .build();
 
         userRepository.save(user);
