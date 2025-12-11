@@ -75,7 +75,7 @@ public class CallService {
         return callSegmentRepository.findByCallLogIdOrderByTimestamp(callId);
     }
     public CallLog startCallForBusiness(Long businessId, String callerNumber) {
-        Business business = businessRepository.findById(businessId).orElseThrow(       );
+        Business business = businessRepository.findById(businessId).orElseThrow();
         CallLog log = CallLog.builder()
                 .business(business)
                 .callerNumber(callerNumber)
