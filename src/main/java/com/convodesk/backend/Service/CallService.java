@@ -74,14 +74,4 @@ public class CallService {
     public List<CallSegment> getCallTranscript(Long callId) {
         return callSegmentRepository.findByCallLogIdOrderByTimestamp(callId);
     }
-    public CallLog startCallForBusiness(Long businessId, String callerNumber) {
-        Business business = businessRepository.findById(businessId).orElseThrow(       );
-        CallLog log = CallLog.builder()
-                .business(business)
-                .callerNumber(callerNumber)
-                .startedAt(LocalDateTime.now())
-                .status(CallStatus.ANSWERED)
-                .build();
-        return callLogRepository.save(log);
-    }
 }
